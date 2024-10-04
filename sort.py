@@ -1,6 +1,6 @@
 import random
 import answered_question
-
+import is_sorted
 
 def sort(array):
 
@@ -21,9 +21,16 @@ def sort(array):
                 if array[j] > array[j+1]: # should there be a discrepancy, swap
                     if not answered_question(): # if they answer falsely
                         random.shuffle(array) # reshuffle
+                        while(True):
+                            # we cover the edge case of the numbers randomly being assigned correctly.
+                            # we want to punish the user. not make them happy.
+                            if not is_sorted(array):
+                                break
+                            else:
+                                random.shuffle(array)
                         print("Answer incorrect, scrambling array. Work on your math!\n")
                         repeat = True
-                        break
+                        break # break out the for loop early
                     else:
                         temp = array[j]
                         array[j]= array[j+1]
