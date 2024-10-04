@@ -10,6 +10,7 @@ def answered_question() -> bool:
     num1 = random.randint(0, 10000)
     num2 = random.randint(0, 10000)
     factorial_range = random.randint(12, 25)
+    exponent_range = random.randint(-99, 99)
     res = 1
     operation = random.randint(0,6)
 
@@ -31,6 +32,9 @@ def answered_question() -> bool:
                 res *= (factorial_range - i)
             print(f"{factorial_range} factorial is what?")
             print(f"{res}")
+        case 5:
+            res = pow(num1, exponent_range)
+            print(f"{num1} to the power of {exponent_range} is what?")
         case _:
             res = num1 % num2
             print(f"{num1} % {num2} is what?\n")
