@@ -14,7 +14,7 @@ def answered_question() -> bool:
     factorial_range = random.randint(12, 40)
     exponent_range = random.randint(-99, 99)
     res = 1
-    operation = random.randint(0,6)
+    operation = random.randint(0,7)
 
     # we match what the operation is with this statement
     match operation:
@@ -38,6 +38,12 @@ def answered_question() -> bool:
         case 5: # raising a number to the power of another
             res = pow(num1, exponent_range)
             print(f"{num1} to the power of {exponent_range} is what?") # this results in stupidly large numbers
+        case 6: # square root
+            res = num1 ** (1/2)
+            print(f"The square root of {num1} is what?")
+        case 7: # cubic root
+            res = num1 ** (1/3)
+            print(f"The cubic root of {num1} is what?")
         case _:
             res = num1 % num2 # get the modulo
             print(f"{num1} % {num2} is what?\n")

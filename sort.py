@@ -13,7 +13,6 @@ def smart_sort(array):
 
     # time complexity: O(n^2 to n!), due to extensive shuffling. this is down to how good one is at maths.
     while True:
-        repeat = False  # track if we repeat
 
         # we do a mock sorting algorithm like bubble sort
         for i in range(0, len(array) - 1):
@@ -29,7 +28,6 @@ def smart_sort(array):
                             else:
                                 random.shuffle(array)
                         print("Answer incorrect, scrambling array. Work on your math!\n")
-                        repeat = True
                         break  # break out the for loop early
                     else:
                         temp = array[j]
