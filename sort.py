@@ -34,8 +34,5 @@ def smart_sort(array):
                         array[j] = array[j + 1]
                         array[j + 1] = temp
 
-        if repeat:  # if previously indicated we need to repeat, we do so
-            continue
-        else:  # otherwise end the function
-            print("sorting complete.")
-            break
+        print("sorting complete.")
+        break
