@@ -14,11 +14,13 @@ def smart_sort(array):
     # time complexity: O(n^2 to n!), due to extensive shuffling. this is down to how good one is at maths.
     while True:
 
+        answered_wrong = False
         # we do a mock sorting algorithm like bubble sort
         for i in range(0, len(array) - 1):
             for j in range(0, len(array) - i - 1):
                 if array[j] > array[j + 1]:  # should there be a discrepancy, swap
-                    if not answered_question():  # if they answer falsely
+                    if not answered_question():
+                        answered_wrong = True  # if they answer falsely we set this to false, so we can reset safely
                         random.shuffle(array)  # reshuffle
                         while (True):
                             # we cover the edge case of the numbers randomly being assigned correctly.
@@ -34,5 +36,6 @@ def smart_sort(array):
                         array[j] = array[j + 1]
                         array[j + 1] = temp
 
-        print("sorting complete.")
-        break
+        if not answered_wrong:
+            print("sorting complete.")
+            break
